@@ -16,7 +16,7 @@ public class OrderRestController {
 
     private final OrderService orderService;
 
-    // 주문 미리보기
+    // 주문 미리보기!
     @GetMapping("list")
     public ResponseEntity<List<CartResponse>> orderPreview(@AuthenticationPrincipal Long userId,
                                                            @RequestParam("cartIdList") List<Long> cartIdList) {
