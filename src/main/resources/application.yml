@@ -28,7 +28,7 @@ spring:
     username: ENC(4sz2FTK2HFNofA68BoONy2cCuBOTlPdH)
     password: ENC(KTcPu5Xk1/0b9KuxLcZh0g==)
     driver-class-name: oracle.jdbc.OracleDriver
-    url: ENC(GwaAj5RzenqeuRYVPYx/82FkjVpCs5a5DCqkxabK0E67eueuig+pJpfTEa3DWTAU)
+    url: ENC(CSd7w1Ff8WtTUtU5AmBX748656V5cy51x09ygd0/kRA97cG/EwQPTooWGsLJjcEb)
   jpa:
     open-in-view: false
     show-sql: true
