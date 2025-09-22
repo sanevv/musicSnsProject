@@ -1,21 +1,21 @@
 jasypt:
   encryptor:
-    password: ${JASYPT_PASSWORD}
+    password: ${JASYPT_ENCRYPTOR_PASSWORD}
 jwt-password:
-  source: ENC(6b81wzyzcQ5WoKJdEtKeoEi3A48AAmimddIGBeu7bzR0lT51ZYtu5b0HPsWT5BJLIwp+0aOz8Q7mSIAxX/m+pu43WtljFpsXl/6hdPxbmyI=)
+  source: ENC(e44c1b46fa1945a06c7a249aff340f00a0bf436d9966ee0005999dab48faedb2)
 
 cool-sms:
-  api-key: ENC(zpPT/zdtRyzfCe3Sr2rvhSQ6QIF79KC1V6SC8+oq3/4=)
-  api-secret: ENC(CaCsmsaAwNd2l4wprRfq8STtunrSBInz9neFJsnitwJc177y/tvyPQh/okBXtIdv)
+  api-key: ENC(EAm2cgIIBNdUQi4aP1V1LDfM3ob4RT2o/1Id8HuPhiA=)
+  api-secret: ENC(i5y9kacgHIKrg9LPI20+7+HuEUAR/pW7ED/ectU4sed35UNovJPdpuJrYLWkhEyZ)
   domain : https://api.solapi.com
-  phone-number: ENC(BLpW8of2lRuzytBtswZcpK2AuZKxv8Nr) # ????
+  phone-number: ENC(Z5LXjSfYsknAko7+LboUUHB/vhNwo2JN) # ????
 
 server:
   tomcat:
     max-part-count: -1
 spring:
   server-url:
-    base: ENC(eAV32/4c9hWU0yc8LNmFBlmzx1+M2uZ50FKV9xuYkdU=)
+    base: ENC(jPh8En5VEdBrH+h8kjMkKEc+hfSgapJO/YN5BkLTyHQ=)
     https: ???
   mvc:
     path match:
@@ -25,18 +25,18 @@ spring:
       prefix: /WEB-INF/views/
       suffix: .jsp
   datasource:
-    username: ENC(4sz2FTK2HFNofA68BoONy2cCuBOTlPdH)
-    password: ENC(KTcPu5Xk1/0b9KuxLcZh0g==)
+    username: ENC(UelQqkfOLzn2l1MDQtSOYHhUEn3aawyN)
+    password: ENC(AYDevY7wFjIsDVu3/Mgdpg==)
     driver-class-name: oracle.jdbc.OracleDriver
-    url: ENC(CSd7w1Ff8WtTUtU5AmBX748656V5cy51x09ygd0/kRA97cG/EwQPTooWGsLJjcEb)
+    url: ENC(fqT/PMWxSwyJBKLWdWhrEzdwNYpnofpM)
   jpa:
     open-in-view: false
     show-sql: true
   mail:
     host: smtp.gmail.com
     port: 587
-    username: ENC(ln5fmmF8MHKflm3zwAmhs6+9B5+pChyxVc8QAr6MXYQ=)
-    password: ENC(CwV/gt+RhaMB7qQesvayTALLI1kLWSjMtCfh1X1SjrE=)
+    username: ENC(4bljmOjFQJ2PcYIQnT5ObyjxCz/HenQS/lrbm40YbMA=)
+    password: ENC(kU11VD7JnoAGqSlEQQc79JKXFxrcBYov)
     properties:
       mail:
         smtp:
@@ -83,11 +83,11 @@ file:
     directory: /uploads/
 
 portOne:
-  primary: ENC(DbwxFBSPGk5nC307yuIONt116Jej3zDJ)
+  primary: ENC(xAqYnBglWkDMrOdy12DMzhBzFpRiKYw2)
 
 spotify:
-  client-id: ENC(sm8jQs3oSVg6k9tE1BulVWNWNngOv9daWADHJ8a125X5oK0br5SGOlMXksSXD08a)
-  client-secret: ENC(S209QI25foWw2y21Yrkix+HIPsBLm62iF6zMRMcrskQSH75SpbnDDHylkQJaTOZc)
+  client-id: ENC(Mm7ZCyeivezE1UVzqukqVFTiplOmSrw5Mq1MMwCOa0krpUeYVy7+J07WGcRvGzLY)
+  client-secret: ENC(gDHITZLMI/poJ0Llc6j5Zsd4ObmNi1u7tkjVQsvwBrmyqChDn8z8UB1vQ12qM9yq)
 music:
   chart:
     bugs: https://music.bugs.co.kr/chart
@@ -96,52 +96,96 @@ music:
     genie:
       url1: https://www.genie.co.kr/chart/top200?rtm=Y&pg=1
       url2: https://www.genie.co.kr/chart/top200?rtm=Y&pg=2
-
 oauth:
   microsoft:
-    client-id: ENC(l8mcLx7QDiYsTwRiPtFlq024tky+nCIgG19OhPPO/K6S5oPmk+mYBG7K/NgyLt05)
-    secret: ENC(G2W8T2wJnGI2YT2QLFbruaePd+TgOQB2POJT51IRAh8e6LfEczaDhDkNrIxCFZRJUTZIym57XEw=)
+    client-id: dummy-client-id
+    secret: dummy-secret
     url:
-      auth: https://login.microsoftonline.com
-      api: https://graph.microsoft.com
+      auth: https://dummy.microsoft.com/auth
+      api: https://dummy.microsoft.com/api
   twitter:
-    client-id: ENC(nFWZ+e0FzaGqbSXuHlQBAqRyT7NQ7XrDbKDHqtc26VwNIbkqRUBZf6lKIm4QxTqQ)
-    secret: ENC(yTOGJlRzEBIFgL0kxjY1+52p71TpqWrWpQxHvxQWLkg5e/vfoctF/7DIWnNvKHr5n0LsFL0/ulFl9ZKRnQO5Ow==)
+    client-id: dummy-client-id
+    secret: dummy-secret
     url:
-      code: https://x.com
-      api: https://api.x.com
+      code: https://dummy.twitter.com/code
+      api: https://dummy.twitter.com/api
   facebook:
-    client-id: ENC(qzUop3NaBKIS7iDr7GOB8/uMY27k+iE6wgItyJrNvNE=)
-    secret: ENC(6IpKXK0B2FAakWgMoMJjYRjqyqs23Bl2q4awbmk2koqJAzrd0B+AmzjapRUqa3w1)
+    client-id: dummy-client-id
+    secret: dummy-secret
     url:
-      code: https://www.facebook.com
-      api: https://graph.facebook.com
+      code: https://dummy.facebook.com/code
+      api: https://dummy.facebook.com/api
   kakao:
-    client-id: ENC(gjUFMFT1Kyqa9rpUO3mNOr/vR2wxzLcrIIVyVS5QYOad3nOotSmNXW0zypxNa50V)
-    secret: ENC(OiSWBApzK8Q2GOJygo2uKhan+KMYr2HrG9KG8kl4ZQP8CTUKP6jwd4E+6oXtKYLZ)
+    client-id: dummy-client-id
+    secret: dummy-secret
     url:
-      auth: https://kauth.kakao.com
-      api: https://kapi.kakao.com
+      auth: https://dummy.kakao.com/auth
+      api: https://dummy.kakao.com/api
   naver:
-    client-id: ENC(nH/XcmbwN4/PHHItYW2XtvBYU1EjqIZE+SdEOj8yi98=)
-    secret: ENC(wS40SiGJ4bPNGYfgcfPjHZMfje8HsK3l)
-    state: ENC(h9I5trQ5Jl/2wSgkE+yVAKUsy1evsno84t8lwzExAS4=)
+    client-id: dummy-client-id
+    secret: dummy-secret
+    state: dummy-state
     url:
-      auth: https://nid.naver.com
-      api: https://openapi.naver.com
+      auth: https://dummy.naver.com/auth
+      api: https://dummy.naver.com/api
   google:
-    client-id: ENC(t36nBH1/CPZ4i23e7T+mtn4dPREHfmox6Kyzmje0VdJfj0IQ/iQoeBIg+pFeypilWG6xuYZsknp7tdUMjF7XdwL+pp/MtfMfzB4j5Ya290I0J2fef/gOaw==)
-    secret: ENC(ArmCJ+zXlxmZ2wNyHDROb6dzwbXwFlV6TCeFKlD9HLnYncvicuczNdTergX8yhKM)
+    client-id: dummy-client-id
+    secret: dummy-secret
     url:
-      code: https://accounts.google.com
-      auth: https://oauth2.googleapis.com
-      api: https://www.googleapis.com
+      code: https://dummy.google.com/code
+      auth: https://dummy.google.com/auth
+      api: https://dummy.google.com/api
   github:
-    client-id: ENC(KbMoBUJk5DvVKa8bGowKowCkrP4xL9l5Hy/F8vx3Ek0=)
-    secret: ENC(m2akYCPA/+wAOD4403hpYAuxHxRNuprW2HPL8YWTJfP/djnCyF75O4mysJaATcXjCj+bE77ekyQ=)
+    client-id: dummy-client-id
+    secret: dummy-secret
     url:
-      auth: https://github.com
-      api: https://api.github.com
+      auth: https://dummy.github.com/auth
+      api: https://dummy.github.com/api
+#oauth:
+#  microsoft:
+#    client-id: ENC(l8mcLx7QDiYsTwRiPtFlq024tky+nCIgG19OhPPO/K6S5oPmk+mYBG7K/NgyLt05)
+#    secret: ENC(G2W8T2wJnGI2YT2QLFbruaePd+TgOQB2POJT51IRAh8e6LfEczaDhDkNrIxCFZRJUTZIym57XEw=)
+#    url:
+#      auth: https://login.microsoftonline.com
+#      api: https://graph.microsoft.com
+#  twitter:
+#    client-id: ENC(nFWZ+e0FzaGqbSXuHlQBAqRyT7NQ7XrDbKDHqtc26VwNIbkqRUBZf6lKIm4QxTqQ)
+#    secret: ENC(yTOGJlRzEBIFgL0kxjY1+52p71TpqWrWpQxHvxQWLkg5e/vfoctF/7DIWnNvKHr5n0LsFL0/ulFl9ZKRnQO5Ow==)
+#    url:
+#      code: https://x.com
+#      api: https://api.x.com
+#  facebook:
+#    client-id: ENC(qzUop3NaBKIS7iDr7GOB8/uMY27k+iE6wgItyJrNvNE=)
+#    secret: ENC(6IpKXK0B2FAakWgMoMJjYRjqyqs23Bl2q4awbmk2koqJAzrd0B+AmzjapRUqa3w1)
+#    url:
+#      code: https://www.facebook.com
+#      api: https://graph.facebook.com
+#  kakao:
+#    client-id: ENC(gjUFMFT1Kyqa9rpUO3mNOr/vR2wxzLcrIIVyVS5QYOad3nOotSmNXW0zypxNa50V)
+#    secret: ENC(OiSWBApzK8Q2GOJygo2uKhan+KMYr2HrG9KG8kl4ZQP8CTUKP6jwd4E+6oXtKYLZ)
+#    url:
+#      auth: https://kauth.kakao.com
+#      api: https://kapi.kakao.com
+#  naver:
+#    client-id: ENC(nH/XcmbwN4/PHHItYW2XtvBYU1EjqIZE+SdEOj8yi98=)
+#    secret: ENC(wS40SiGJ4bPNGYfgcfPjHZMfje8HsK3l)
+#    state: ENC(h9I5trQ5Jl/2wSgkE+yVAKUsy1evsno84t8lwzExAS4=)
+#    url:
+#      auth: https://nid.naver.com
+#      api: https://openapi.naver.com
+#  google:
+#    client-id: ENC(t36nBH1/CPZ4i23e7T+mtn4dPREHfmox6Kyzmje0VdJfj0IQ/iQoeBIg+pFeypilWG6xuYZsknp7tdUMjF7XdwL+pp/MtfMfzB4j5Ya290I0J2fef/gOaw==)
+#    secret: ENC(ArmCJ+zXlxmZ2wNyHDROb6dzwbXwFlV6TCeFKlD9HLnYncvicuczNdTergX8yhKM)
+#    url:
+#      code: https://accounts.google.com
+#      auth: https://oauth2.googleapis.com
+#      api: https://www.googleapis.com
+#  github:
+#    client-id: ENC(KbMoBUJk5DvVKa8bGowKowCkrP4xL9l5Hy/F8vx3Ek0=)
+#    secret: ENC(m2akYCPA/+wAOD4403hpYAuxHxRNuprW2HPL8YWTJfP/djnCyF75O4mysJaATcXjCj+bE77ekyQ=)
+#    url:
+#      auth: https://github.com
+#      api: https://api.github.com
 
 logging:
   level:
