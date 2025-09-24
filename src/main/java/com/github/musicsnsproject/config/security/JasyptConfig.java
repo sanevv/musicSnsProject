@@ -1,5 +1,7 @@
 package com.github.musicsnsproject.config.security;
 
+
+import jakarta.annotation.PostConstruct;
 import org.jasypt.encryption.StringEncryptor;
 import org.jasypt.encryption.pbe.PooledPBEStringEncryptor;
 import org.jasypt.encryption.pbe.config.SimpleStringPBEConfig;
@@ -26,5 +28,15 @@ public class JasyptConfig {
         config.setStringOutputType("base64");
         encryptor.setConfig(config);
         return encryptor;
+    }
+
+    @PostConstruct
+    public void checkKey() {
+        System.out.println("Jasypt key :::: " + jasyptKey);
+    }
+
+    @PostConstruct
+    public void checkJasypt() {
+        System.out.println("JASYPT_ENCRYPTOR_PASSWORD = " + System.getenv("JASYPT_ENCRYPTOR_PASSWORD"));
     }
 }

@@ -6,6 +6,7 @@ import com.github.musicsnsproject.repository.redis.RedisRepository;
 import jakarta.mail.MessagingException;
 import jakarta.mail.internet.MimeMessage;
 import lombok.RequiredArgsConstructor;
+import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
@@ -56,6 +57,7 @@ public class EmailVerifyService {
             helper.setText(htmlContent, true);
             //메일 보내기
             mailSender.send(mimeMessage);
+            System.out.println("메일 발송 완료 → Redis 저장 시도: key={}, code={}"+ to + "," + verifyCode);
             //레디스 저장 (유효 기간 10분)
             redisRepository.save(to, verifyCode, Duration.ofMinutes(10));
         } catch (MessagingException e) {

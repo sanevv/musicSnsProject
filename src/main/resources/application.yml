@@ -2,7 +2,7 @@ jasypt:
   encryptor:
     password: ${JASYPT_ENCRYPTOR_PASSWORD}
 jwt-password:
-  source: ENC(e44c1b46fa1945a06c7a249aff340f00a0bf436d9966ee0005999dab48faedb2)
+  source: ENC(8V7NR+u4LLHB+ApNmHk+zfjdEC6T4242dl6y8G1463KQglM5kRlE4ouSPh4CmwcFLKHrpOLKPMiihrIILLiiBqkVS2zoeUBdiH5g2LaP9b0=)
 
 cool-sms:
   api-key: ENC(EAm2cgIIBNdUQi4aP1V1LDfM3ob4RT2o/1Id8HuPhiA=)
@@ -28,7 +28,7 @@ spring:
     username: ENC(UelQqkfOLzn2l1MDQtSOYHhUEn3aawyN)
     password: ENC(AYDevY7wFjIsDVu3/Mgdpg==)
     driver-class-name: oracle.jdbc.OracleDriver
-    url: ENC(fqT/PMWxSwyJBKLWdWhrEzdwNYpnofpM)
+    url: ENC(XeTE/muIeKmKeYJSya6hzmsBXlD7a3FIwSmixKBzFxNusU5AiuzKD2PczSJS9/sk)
   jpa:
     open-in-view: false
     show-sql: true
@@ -36,7 +36,7 @@ spring:
     host: smtp.gmail.com
     port: 587
     username: ENC(4bljmOjFQJ2PcYIQnT5ObyjxCz/HenQS/lrbm40YbMA=)
-    password: ENC(kU11VD7JnoAGqSlEQQc79JKXFxrcBYov)
+    password: ENC(/Fj+o9c4TfOUEJ//Wn2TPC4F/RRUzi/xWriEGAQJtgM=)
     properties:
       mail:
         smtp:
@@ -53,18 +53,19 @@ spring:
     mongodb:
       database: musicSNS
     redis:
-      host: ENC(0p2kKHWaQnA1J667rTSG9QX5weT1LIJ6)
+      host: ENC(qcxr7ra/EP5ai67HtTUDwbhOn6snZGdP)
       port: 6379
+#      password: ENC(/UgnVdSo17Sadn5PHf4lOA==)
       timeout: 3000
   #Azure Storage
   cloud:
     azure:
       storage:
         blob:
-          account-name: ENC(qSaMwi3ynCApmB2cF4je/04HXXEbkl0kpKBrtTlBKbY=)
-          endpoint: ENC(fiXr1qU7rFW2eFWyHgPWBkiZs+zDLYfeGz8uWcKvztvblArRXBzLpApVETK2F8d4dG0DAqwIXbsCnjfYmq1McQ==)
-          container-name: ENC(x8vr3ZBICXMa4VL5h2xuUhxQKrNfcNfTW+CX33iLvkymQ2hy+plEow==)
-          account-key: ENC(UVZI2NMSTWujhJJpsw4UC4TBv4t2Y7VU+Xo0a5yXIBCrOIoQsGETF5hyiDk98indKfwZc8EXY51x//1lGCVhGjEFIPRZC2KdarCx2bYb/JVmt36J9tjhaHU2Weoub3gury4bAuXQpkI=)
+          account-name: ENC(Gfmiwm3gN7aN/QYRS1g/s5g6kI1iBgROApUyCNjNAho=)
+          endpoint: ENC(Ww2zX4igndXFi7cnvWjpz9/BexaTrYkqZwBEEi3D79wjVoH/Re6iz0naH2FvqAJAR72k06beCao=)
+          container-name: ENC(2HBf78QcGwzb5iXFRAx/cdwpEeLcsQbYPmJHBQySE9A=)
+          account-key: ENC(dL/R9JzARBL1YZpG0tQ5A1ojTqWzIaSHlBtCSza7Ivva2lbrkUimdcIhUfUAa21pkpYOPwIiNwCfEZsxs9Ayv0u3eq6mZQk7y+ySPKtq1Jk3DgbwqlMnOvii6ZO6PV8AplVkLLImwec=)
 
 
 mybatis:

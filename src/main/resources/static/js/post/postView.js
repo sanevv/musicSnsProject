@@ -12,6 +12,7 @@ $(document).ready(function(){
                 headers: AuthFunc.getAuthHeader(),
                 success: function (data) {
 
+                    console.log(data);
                     let v_html = ``;
 
                     data.forEach(item => {
@@ -92,7 +93,6 @@ $(document).ready(function(){
                             }
 
                             v_html += `    <button type="button" name="comments" id="comments" data-post-id="${item.postId}" data-toggle="modal" data-target="#twoColumnModal">💬</button>
-                                           <button type="button" name="" id="">📤</button>
                                        </div>
                                        <div class="post-content">
                                             <div class="title">${item.title}</div>

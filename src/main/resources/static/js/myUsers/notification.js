@@ -245,9 +245,9 @@
 	$(function () {
 		// 알림 열기
 		$(document).on('click', '.btn.noti', function () {
-			const target = $(this).data('target'); 
-			$('.aside-navigation-layer').removeClass('on');
-			$('#' + target).addClass('on');
+			// const target = $(this).data('target');
+			// $('.aside-navigation-layer').removeClass('on');
+			// $('#' + target).addClass('on');
 			loadNotifications(true);
 		});
 

@@ -10,6 +10,8 @@ import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.io.Decoders;
 import io.jsonwebtoken.security.Keys;
 import lombok.extern.log4j.Log4j2;
+import org.jasypt.encryption.StringEncryptor;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.json.BasicJsonParser;
 import org.springframework.boot.web.server.Cookie;
@@ -31,6 +33,13 @@ public class JwtProvider {
     private final RedisRepository redisRepository;
 
     private final SecretKey key;//= Jwts.SIG.HS256.key().build();  이건 랜덤키 자동생성
+//    public JwtProvider(@Value("${jwt-password.source}") String encryptedKey,
+//                       @Qualifier("jasyptStringEncryptor") StringEncryptor encryptor,
+//                       RedisRepository redisRepository) {
+//        String decryptedKey = encryptor.decrypt(encryptedKey); // 여기서 복호화
+//        this.key = Keys.hmacShaKeyFor(Decoders.BASE64.decode(decryptedKey));
+//        this.redisRepository = redisRepository;
+//    }
     public JwtProvider(@Value("${jwt-password.source}")String keySource, RedisRepository redisRepository) {
         this.key = Keys.hmacShaKeyFor(Decoders.BASE64.decode(keySource));
         this.redisRepository = redisRepository;
