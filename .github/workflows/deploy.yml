@@ -59,12 +59,12 @@ jobs:
 
       # 8️⃣ 서버 호스트 등록
       - name: Add known hosts
-        run: ssh-keyscan -t ed25519 3.34.4.153 >> ~/.ssh/known_hosts
+        run: ssh-keyscan -t ed25519 3.39.51.255 >> ~/.ssh/known_hosts
 
       # 9️⃣ 서버 배포 (DockerHub 이미지)
       - name: Deploy on server using DockerHub image
         run: |
-          ssh ubuntu@3.34.4.153 << 'EOF'
+          ssh ubuntu@3.39.51.255 << 'EOF'
             docker stop music-sns-app || true
             docker rm music-sns-app || true
           
