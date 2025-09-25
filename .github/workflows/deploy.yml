@@ -41,11 +41,15 @@ jobs:
       - name: Log in to DockerHub
         run: echo "${{ secrets.DOCKERHUB_PASSWORD }}" | docker login -u "${{ secrets.DOCKERHUB_USERNAME }}" --password-stdin
 
-      # 6️⃣ Docker 이미지 빌드 & 푸시
+      # 6️⃣ Docker 이미지 빌드 & 푸시 (버전태깅추가)
       - name: Build and Push Docker image
         run: |
-          docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/spring-app:latest .
-          docker push ${{ secrets.DOCKERHUB_USERNAME }}/spring-app:latest
+          VERSION=${{ github.sha }}
+          docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/music-sns-app:$VERSION \
+                       -t ${{ secrets.DOCKERHUB_USERNAME }}/music-sns-app:latest .
+          docker push ${{ secrets.DOCKERHUB_USERNAME }}/music-sns-app:$VERSION
+          docker push ${{ secrets.DOCKERHUB_USERNAME }}/music-sns-app:latest
+          
 
       # 7️⃣ SSH 키 등록
       - name: Add SSH key
@@ -61,11 +65,11 @@ jobs:
       - name: Deploy on server using DockerHub image
         run: |
           ssh ubuntu@3.34.4.153 << 'EOF'
-            docker stop spring-app || true
-            docker rm spring-app || true
-            docker pull ${{ secrets.DOCKERHUB_USERNAME }}/spring-app:latest
-            docker run -d --name spring-app \
+            docker stop music-sns-app || true
+            docker rm music-sns-app || true
+            docker pull ${{ secrets.DOCKERHUB_USERNAME }}/music-sns-app:latest
+            docker run -d --name music-sns-app \
               -p 8080:8080 \
               -e JASYPT_ENCRYPTOR_PASSWORD=${{ secrets.JASYPT_KEY }} \
-              ${{ secrets.DOCKERHUB_USERNAME }}/spring-app:latest
+              ${{ secrets.DOCKERHUB_USERNAME }}/music-sns-app:latest
           EOF
