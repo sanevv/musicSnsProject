@@ -44,7 +44,7 @@
                     <label for="identifier">이메일 또는 전화번호</label>
                     <div class="input-wrapper">
                         <i class="bi bi-person-fill"></i>
-                        <input type="text" id="identifier" name="identifier" required>
+                        <input type="text" id="identifier" name="identifier" value="sanevv@naver.com" required>
                     </div>
                 </div>
 
@@ -52,7 +52,7 @@
                     <label for="password">비밀번호</label>
                     <div class="input-wrapper">
                         <i class="bi bi-lock-fill"></i>
-                        <input type="password" id="password" name="password" required autocomplete="current-password">
+                        <input type="password" id="password" name="password" value="Qwer1234$" required autocomplete="current-password">
                         <button type="button" class="password-toggle" onclick="togglePassword()">
                             <i id="passwordEye" class="bi bi-eye"></i>
                         </button>

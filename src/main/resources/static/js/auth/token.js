@@ -47,21 +47,32 @@
         return {};
     }
 
-// 토큰 만료 시 자동 갱신 및 재시도 함수
+    let loginRedirected = false; // 이미 로그인 리다이렉트 했는지 체크
+    // 토큰 만료 시 자동 갱신 및 재시도 함수
     async function apiRequest(requestFn, maxRetries = 1) {
         try {
             return await requestFn();
         } catch (error) {
-            console.log("에러받음")
-            console.log(error)
+            console.log("에러받음");
+            console.log(error);
+
+            // 401 에러이고 초기 접속 전에 토큰이 없는 경우
+            if (error?.response?.status === 401 && error?.response?.data?.error?.customMessage === "토큰 정보 없음") {
+                if(!loginRedirected){
+                    loginRedirected = true; // 리다이렉트 플래그 설정
+                    alert('로그인이 필요합니다.');
+                    location.href = `${ctxPath}/auth/login`;
+                }
+                return;
+            }
+
             // 401 에러이고 토큰 만료인 경우
             if (error?.response?.status === 401 &&
                 error?.response?.data?.error?.customMessage === "만료된 토큰" &&
                 maxRetries > 0) {
-
                 try {
                     // 토큰 갱신
-                    console.log("갱신요청긔")
+                    console.log("갱신요청")
                     await refreshAuthToken();
                     // 재시도
                     return await apiRequest(requestFn, maxRetries - 1);
@@ -70,6 +81,7 @@
                     throw error;
                 }
             }
+
             // 다른 에러는 그대로 던지기
             throw error;
         }
@@ -139,24 +151,3 @@ function primaryKey() {
         throw error;
     });
 }
-
-
-//TODO: 삭제 예정 - 위의 apiRequest로 대체
-// function refreshAuthToken() {
-//     return axios.post(`${ctxPath}/api/auth/refresh`, {}, {
-//         headers: AuthFunc.getAuthHeader(),
-//         withCredentials: true
-//     })
-//         .then(response => {
-//             const responseData = response.data.success.responseData;
-//             localStorage.setItem('accessToken', responseData.accessToken);
-//             localStorage.setItem('tokenType', responseData.tokenType);
-//
-//         }).catch(error => {
-//             console.error('Error refreshing token:', error);
-//             console.error(error.response.data.error);
-//             alert('세션이 만료되었습니다. 다시 로그인해주세요.');
-//             // window.location.href = ctxPath + '/auth/login';
-//             throw error; // 에러를 다시 던져서 상위에서 처리할 수 있도록
-//         });
-// }
