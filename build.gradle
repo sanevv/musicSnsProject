@@ -125,13 +125,13 @@ tasks.named('bootJar'){
     archiveFileName = 'MusicSnsProject.jar'
     archiveVersion = "3.9.3"
 }
-tasks.named('bootWar') {
-    mainClass = 'com.github.musicsnsproject.MusicSnsProjectApplication'
-    destinationDirectory = file(buildDir)
-    archivesBaseName = '프로젝트이름'
-    archiveFileName = 'MusicSnsProject.war'
-    archiveVersion = "3.9.3"
-}
+//tasks.named('bootWar') {
+//    mainClass = 'com.github.musicsnsproject.MusicSnsProjectApplication'
+//    destinationDirectory = file(buildDir)
+//    archivesBaseName = '프로젝트이름'
+//    archiveFileName = 'MusicSnsProject.war'
+//    archiveVersion = "3.9.3"
+//}
 
 clean {
     delete file(buildDir), file(generatedDir)
