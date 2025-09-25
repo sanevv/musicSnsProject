@@ -67,9 +67,11 @@ jobs:
           ssh ubuntu@3.34.4.153 << 'EOF'
             docker stop music-sns-app || true
             docker rm music-sns-app || true
+          
             docker pull ${{ secrets.DOCKERHUB_USERNAME }}/music-sns-app:latest
             docker run -d --name music-sns-app \
               -p 8080:8080 \
               -e JASYPT_ENCRYPTOR_PASSWORD=${{ secrets.JASYPT_KEY }} \
+              -e SPRING_DATASOURCE_PASSWORD=${{ secrets.DB_PASSWORD }} \
               ${{ secrets.DOCKERHUB_USERNAME }}/music-sns-app:latest
           EOF
