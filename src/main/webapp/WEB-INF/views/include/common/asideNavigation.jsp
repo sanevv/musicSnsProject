@@ -78,7 +78,7 @@
 					onclick="location.href='<%=ctxPath%>/index'">홈</button>
 			</li>
 			<li>
-				<button type="button" class="btn search" data-target="searchLayer">검색</button>
+				<button type="button" class="btn search" data-target="#searchLayer">검색</button>
 			</li>
 			<li>
 				<button type="button" class="btn chart"
@@ -89,17 +89,16 @@
 			    	onclick="location.href='<%=ctxPath%>/admin/stats'">통계</button>
 			</li>
 			<li>
-				<button type="button" class="btn noti" data-target="notiLayer">알림</button>
+				<button type="button" class="btn noti" data-target="#notiLayer">알림</button>
 			</li>
 			<li>
-				<button type="button" class="btn profile" data-target="profileLayer">프로필</button>
+				<button type="button" class="btn profile" data-target="#profileLayer">프로필</button>
 			</li>
 			<!-- <li>
 				<button type="button" class="btn setting">설정</button>
 			</li> -->
 			<li>
-				<button type="button" class="btn post" data-toggle="modal"
-					data-target="postModal">게시물작성</button>
+				<button type="button" class="btn post" data-toggle="modal" data-target="#postModal">게시물작성</button>
 			</li>
 			<li>
 				<button type="button" class="btn music"

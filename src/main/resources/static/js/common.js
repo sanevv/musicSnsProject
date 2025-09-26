@@ -9,8 +9,8 @@ asideBtnList.forEach(btn => {
 
     btn.addEventListener("click", () => {
 
-        let thisLayer = document.querySelector("#"+dataTarget);
-        let isLayer = document.querySelector("#"+dataTarget).classList.contains("on");
+        let thisLayer = document.querySelector(dataTarget);
+        let isLayer = document.querySelector(dataTarget).classList.contains("on");
 
         if(isLayer){
             thisLayer.classList.remove("on");

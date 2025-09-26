@@ -53,9 +53,8 @@ spring:
     mongodb:
       database: musicSNS
     redis:
-      host: ENC(qcxr7ra/EP5ai67HtTUDwbhOn6snZGdP)
+      host: ENC(pXU+1R/uQH7mP8iozo5bpHWqyiZUwkz7)
       port: 6379
-#      password: ENC(/UgnVdSo17Sadn5PHf4lOA==)
       timeout: 3000
   #Azure Storage
   cloud:
