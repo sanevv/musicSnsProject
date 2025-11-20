@@ -56,7 +56,7 @@ spring:
     mongodb:
       database: musicSNS
     redis:
-      host: ENC(+I6mD0vjypjyCgQY9Rl1HQAPSI/hznS2)          # EC2 배포 시 localhost 사용하거나 privateIP 사용
+      host: ENC(ChmsegEjtuu13iKH9sSZvaBQEyt9258m)          # EC2 배포 시 localhost 사용하거나 privateIP 사용
       port: 6379
       timeout: 3000
   #Azure Storage
