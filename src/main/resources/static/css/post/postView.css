@@ -81,6 +81,9 @@
 .feed-container .post-content {
     padding: 0 10px 10px 10px;
 }
+.feed-container .post-content .title {
+    margin: 10px 0 18px;
+}
 
 .feed-container .post-content .likes {
     font-weight: bold;

@@ -14,6 +14,9 @@ server:
   tomcat:
     max-part-count: -1
 spring:
+  config:
+    activate:
+      on-profile: prod
   server-url:
     base: ENC(jPh8En5VEdBrH+h8kjMkKEc+hfSgapJO/YN5BkLTyHQ=)
     https: ???
@@ -53,7 +56,7 @@ spring:
     mongodb:
       database: musicSNS
     redis:
-      host: ENC(ChmsegEjtuu13iKH9sSZvaBQEyt9258m) # 로컬에서 접근할 때 퍼블릭IP 사용
+      host: ENC(+I6mD0vjypjyCgQY9Rl1HQAPSI/hznS2)          # EC2 배포 시 localhost 사용하거나 privateIP 사용
       port: 6379
       timeout: 3000
   #Azure Storage

@@ -50,7 +50,7 @@
 /* 글자 반복을 위한 내부 span */
 .scrolling-wrapper span {
   display: inline-block;
-  padding-right: 120px; /* 글자 사이 간격 */
+  padding-right: 140px; /* 글자 사이 간격 */
   height: 10px;
 }
 

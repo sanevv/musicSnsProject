@@ -58,6 +58,7 @@ dependencies {
     //spotify
     implementation 'se.michaelthelin.spotify:spotify-web-api-java:9.3.0'
 
+    implementation 'com.ibm.icu:icu4j:73.2'  // 최신 안정 버전 확인
 
     //env-hide 야믈에 쓴 비번 가져올수있음
     annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
@@ -94,7 +95,7 @@ dependencies {
     implementation 'jakarta.el:jakarta.el-api:6.0.1'
 
     //devtools 빠른 핫스왑
-//    developmentOnly 'org.springframework.boot:spring-boot-devtools'
+    developmentOnly 'org.springframework.boot:spring-boot-devtools'
 
     //azure storage
     implementation 'com.azure.spring:spring-cloud-azure-starter-storage-blob'
@@ -132,6 +133,10 @@ tasks.named('bootJar'){
 //    archiveFileName = 'MusicSnsProject.war'
 //    archiveVersion = "3.9.3"
 //}
+bootRun {
+    systemProperties = System.properties
+    environment "JASYPT_ENCRYPTOR_PASSWORD", System.getenv("JASYPT_ENCRYPTOR_PASSWORD")
+}
 
 clean {
     delete file(buildDir), file(generatedDir)

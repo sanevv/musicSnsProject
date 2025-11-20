@@ -115,7 +115,7 @@ function getUserInfo() {
 				// 내 프로필일 때
 				b_html += `
 				                        <button class="btn custom-btn" onclick="location.href='/mypage/updateInfo'">프로필 편집</button>
-				                        <button class="btn custom-btn">위시리스트</button>
+				                        <button type="button" class="btn custom-btn" data-toggle="modal" data-target="#postModal">글쓰기</button>
 				                        <button class="btn custom-btn" onclick="location.href='/cart/list'">장바구니</button>
 
 				                        <div class="dropdown">

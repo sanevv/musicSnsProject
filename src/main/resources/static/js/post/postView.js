@@ -14,95 +14,96 @@ $(document).ready(function(){
 
                     console.log(data);
                     let v_html = ``;
+                    if (data.length === 0){
+                        v_html += `<span style="font-weight: bold; text-align: center">등록된 게시물이 없습니다. </span>`;
+                    }
+                    else {
+                        data.forEach(item => {
 
-                    data.forEach(item => {
+                            // console.log(item.username);
+                            // console.log(item.profileImage);
 
-                        // console.log(item.username);
-                        // console.log(item.profileImage);
+                            // followPostVOList 가 비어있는 경우, 뷰단에는 "등록된 게시물이 없습니다." 를 나타나게 함
 
-                        // followPostVOList 가 비어있는 경우, 뷰단에는 "등록된 게시물이 없습니다." 를 나타나게 함
-                        if(item == null){
-                            v_html += `<span style="font-weight: bold; text-align: center">등록된 게시물이 없습니다.</span>`;
-                        }
-                        else{
-                            v_html += `
-                            <div class="post" data-post-id="${item.postId}">
-                                <div class="post-header">
-                                    <div class="post-header-left">
-                                        <img class="profileImage" src="${item.profileImage}" alt="프로필">
-                                        <span class="username">${item.username}</span>
-                                    </div>
-                                    <div class="post-header-right">
-                                        <span style="color: #5e35b1; font-weight: bold">${item.emotionLabel}</span>
-                                        <button type="button" class="menu-btn">⋮</button>
-                                          <ul class="dropdown-menu" style="display:none;">
-                                            <li class="menuItem" data-action="delete" style="color: red; font-weight: bold" >삭제하기</li>
-                                            <li class="menuItem" data-action="edit"><a href="/post/postEdit?postId=${item.postId}">수정하기</a></li>
-                                          </ul>
-                                    </div>
-                                </div>`;
+                           if (item != null) {
+                                v_html += `
+                                <div class="post" data-post-id="${item.postId}">
+                                    <div class="post-header">
+                                        <div class="post-header-left">
+                                            <img class="profileImage" src="${item.profileImage}" alt="프로필">
+                                            <span class="username">${item.username}</span>
+                                        </div>
+                                        <div class="post-header-right">
+                                            <span style="color: #5e35b1; font-weight: bold">${item.emotionLabel}</span>
+                                            <button type="button" class="menu-btn">⋮</button>
+                                              <ul class="dropdown-menu" style="display:none;">
+                                                <li class="menuItem" data-action="delete" style="color: red; font-weight: bold" >삭제하기</li>
+                                                <li class="menuItem" data-action="edit"><a href="/post/postEdit?postId=${item.postId}">수정하기</a></li>
+                                              </ul>
+                                        </div>
+                                    </div>`;
 
-                            const postImageUrls = item.post_image_urls;
+                                const postImageUrls = item.post_image_urls;
 
-                            // 이미지가 2장 이상일 때만 indicator 표시 (JSP와 동일하게)
-                            if (postImageUrls && postImageUrls.length > 1) {
-                                const carouselId = `carousel-${item.postId}`; // 숫자 id 대비용 접두어
+                                // 이미지가 2장 이상일 때만 indicator 표시 (JSP와 동일하게)
+                                if (postImageUrls && postImageUrls.length > 1) {
+                                    const carouselId = `carousel-${item.postId}`; // 숫자 id 대비용 접두어
 
-                                // indicators
-                                const indicatorsHtml = postImageUrls
-                                    .map((_, idx) =>
-                                        `<li data-target="#${carouselId}" data-slide-to="${idx}" ${idx === 0 ? 'class="active"' : ''}></li>`
-                                    )
-                                    .join('');
+                                    // indicators
+                                    const indicatorsHtml = postImageUrls
+                                        .map((_, idx) =>
+                                            `<li data-target="#${carouselId}" data-slide-to="${idx}" ${idx === 0 ? 'class="active"' : ''}></li>`
+                                        )
+                                        .join('');
 
-                                // slides
-                                const slidesHtml = postImageUrls
-                                    .map((url, idx) =>
-                                        `<div class="carousel-item ${idx === 0 ? 'active' : ''}">
-                                             <img src="${url}" class="d-block w-100" alt="">
-                                         </div>`
-                                    )
-                                    .join('');
+                                    // slides
+                                    const slidesHtml = postImageUrls
+                                        .map((url, idx) =>
+                                            `<div class="carousel-item ${idx === 0 ? 'active' : ''}">
+                                                 <img src="${url}" class="d-block w-100" alt="">
+                                             </div>`
+                                        )
+                                        .join('');
 
-                                // 전체 마크업
-                                v_html += `<div id="${carouselId}" class="carousel slide" data-interval="false">
-                                              <ol class="carousel-indicators">
-                                                ${indicatorsHtml}
-                                              </ol>
-                                              <div class="carousel-inner">
-                                                ${slidesHtml}
-                                              </div>
-                                              <a class="carousel-control-prev" href="#${carouselId}" role="button" data-slide="prev">
-                                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                                <span class="sr-only">Previous</span>
-                                              </a>
-                                              <a class="carousel-control-next" href="#${carouselId}" role="button" data-slide="next">
-                                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                                <span class="sr-only">Next</span>
-                                              </a>
-                                           </div>`;
-                            } // end of if(postImageUrls && postImageUrls.length > 1) {}
+                                    // 전체 마크업
+                                    v_html += `<div id="${carouselId}" class="carousel slide" data-interval="false">
+                                                  <ol class="carousel-indicators">
+                                                    ${indicatorsHtml}
+                                                  </ol>
+                                                  <div class="carousel-inner">
+                                                    ${slidesHtml}
+                                                  </div>
+                                                  <a class="carousel-control-prev" href="#${carouselId}" role="button" data-slide="prev">
+                                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                                    <span class="sr-only">Previous</span>
+                                                  </a>
+                                                  <a class="carousel-control-next" href="#${carouselId}" role="button" data-slide="next">
+                                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                                    <span class="sr-only">Next</span>
+                                                  </a>
+                                               </div>`;
+                                } // end of if(postImageUrls && postImageUrls.length > 1) {}
 
-                            v_html += `<div class="post-actions">`;
+                                v_html += `<div class="post-actions">`;
 
-                            if(item.myLiked){
-                                v_html += `<button type="button" class="btn like" style="background-image: url('/images/like/purpleLove.png') " onclick="goLike(${item.postId}, this)"><span class="blind">하트</span></button>`;
+                                if (item.myLiked) {
+                                    v_html += `<button type="button" class="btn like" style="background-image: url('/images/like/purpleLove.png') " onclick="goLike(${item.postId}, this)"><span class="blind">하트</span></button>`;
+                                } else {
+                                    v_html += `<button type="button" class="btn like" onclick="goLike(${item.postId}, this)"><span class="blind">하트</span></button>`;
+                                }
+
+                                v_html += `    <button type="button" name="comments" id="comments" data-post-id="${item.postId}" data-toggle="modal" data-target="#twoColumnModal">💬</button>
+                                           </div>
+                                           <div class="post-content">
+                                                <div class="title">${item.title}</div>
+                                                <div class="likes">좋아요 ${item.postLikeCnt ?? 0}개</div>
+                                                <div class="caption"><span style="font-size: 11pt; font-weight: bold">${item.username}</span> <b class="contents">${item.contents}</b></div>
+                                           </div>
+                                       </div>`;
                             }
-                            else {
-                                v_html += `<button type="button" class="btn like" onclick="goLike(${item.postId}, this)"><span class="blind">하트</span></button>`;
-                            }
 
-                            v_html += `    <button type="button" name="comments" id="comments" data-post-id="${item.postId}" data-toggle="modal" data-target="#twoColumnModal">💬</button>
-                                       </div>
-                                       <div class="post-content">
-                                            <div class="title">${item.title}</div>
-                                            <div class="likes">좋아요 ${item.postLikeCnt ?? 0}개</div>
-                                            <div class="caption"><span style="font-size: 11pt; font-weight: bold">${item.username}</span> <b class="contents">${item.contents}</b></div>
-                                       </div>
-                                   </div>`;
-                        }
-
-                    }) // end of data.forEach(item => {})
+                        }) // end of data.forEach(item => {})
+                    }
 
                     $('div#feed').html(v_html);
 
